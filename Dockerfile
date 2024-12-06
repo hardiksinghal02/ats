@@ -1,5 +1,5 @@
 # Use a Python image that's compatible with ARM architecture (Raspberry Pi)
-FROM arm32v7/python:3.9-slim
+FROM python:3.9-slim
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 
 # Install the Python dependencies from requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Copy the rest of your application files into the container
 COPY . /app/
