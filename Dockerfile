@@ -4,6 +4,10 @@ FROM python:3.9-slim
 # Set the working directory inside the container
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y \
+    poppler-utils \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy the requirements.txt file to the container
 COPY requirements.txt /app/
 
